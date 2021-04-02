@@ -10,13 +10,14 @@
 
 typedef void(*fnc)(master_t*);
 
+
 int main(int ac, char **av)
 {
     sfClock * clock = sfClock_create();
     sfTime time;
     sfEvent event;
     master_t *master = malloc(sizeof(master_t));
-    fnc func[5] = {menu};
+    fnc func[5] = {menu, game};
 
     initmaster(master);
     while (sfRenderWindow_isOpen(master->window)) {
@@ -26,7 +27,7 @@ int main(int ac, char **av)
         time = sfClock_getElapsedTime(clock);
         if (time.microseconds >= 16666) {
             sfClock_restart(clock);
-            menu(master);
+            func[master->state](master);
         }
     }
     return (0);

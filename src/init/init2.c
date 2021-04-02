@@ -7,11 +7,11 @@
 
 #include "include.h"
 
-
 void initmaster(master_t *master)
 {
     master->window = init_window();
     master->menu = setmenu();
+    master->game = setgame();
     master->state = 0;
     master->mouse = 0;
 }

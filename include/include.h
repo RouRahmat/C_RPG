@@ -39,7 +39,7 @@ buttonptr_t *setbuttons_menu(void);
 //  - - - - - src/display - - - - -
 //  display.c
 
-void display (sfRenderWindow *window, master_t *master);
+void display (master_t *master);
 
 //  - - - - - src/ - - - - -
 
@@ -56,3 +56,5 @@ int check_mouse_state(master_t *master);
 void initmaster(master_t *master);
 
 int menu(master_t *master);
+
+int game(master_t *master);
