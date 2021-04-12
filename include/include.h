@@ -15,7 +15,6 @@
 #include "my.h"
 #include "struct.h"
 
-typedef void(*fnc)(master_t*);
 
 //game.c
 void quit(master_t *master);

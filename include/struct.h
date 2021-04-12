@@ -64,7 +64,6 @@ typedef struct game_s {
     txtbox_t *txtbox;
     player_t *player;
     keyboard_t *key;
-    char *board;
 } game_t;
 
 typedef struct menu_s {
