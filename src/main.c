@@ -10,6 +10,7 @@
 
 typedef void(*fnc)(master_t *);
 
+
 int main(int ac, char **av)
 {
     sfClock * clock = sfClock_create();

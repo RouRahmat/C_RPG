@@ -32,6 +32,40 @@ typedef struct buttonptr_s {
     button_t *first;
 } buttonptr_t;
 
+typedef struct player_s {
+    sfSprite *sprite;
+    sfIntRect rect;
+    sfVector2f pos;     //      4
+    int facing;         // 3          1
+} player_t;             //      2
+
+typedef struct txtbox_s {
+    sfSprite *sprite;
+    sfSprite *arrow;
+    sfText *text;
+    char *string;
+    int status;     // 0 : no more text     1 : more text to be displayed
+    int disp;
+} txtbox_t;
+
+typedef struct keyboard_s {
+    int Z;
+    int Q;
+    int S;
+    int D;
+    int E;
+    int I;
+    int Mouse;
+} keyboard_t;
+
+
+typedef struct game_s {
+    sfSprite *map;
+    txtbox_t *txtbox;
+    player_t *player;
+    keyboard_t *key;
+} game_t;
+
 typedef struct menu_s {
     buttonptr_t *buttons;
     sfSprite *background;

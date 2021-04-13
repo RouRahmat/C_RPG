@@ -41,7 +41,7 @@ buttonptr_t *setbuttons_menu(void);
 //  - - - - - src/display - - - - -
 //  display.c
 
-void display (sfRenderWindow *window, master_t *master);
+void display (master_t *master);
 
 //  - - - - - src/ - - - - -
 
