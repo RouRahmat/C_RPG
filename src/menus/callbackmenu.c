@@ -16,3 +16,8 @@ void play(master_t *master)
 {
     master->state = 2;
 }
+
+void load(master_t *master)
+{
+    master->state = 1;
+}

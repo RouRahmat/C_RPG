@@ -35,12 +35,17 @@ typedef struct buttonptr_s {
 typedef struct menu_s {
     buttonptr_t *buttons;
     sfSprite *background;
-    sfSprite *mouse;
 } menu_t;
+
+typedef struct loadm_s {
+    buttonptr_t *buttons;
+    sfSprite *background;
+} loadm_t;
 
 struct master_s {
     sfRenderWindow *window;
     menu_t *menu;
+    loadm_t *load;
     int mouse;
     int state;
 };

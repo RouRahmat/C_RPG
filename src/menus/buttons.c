@@ -57,6 +57,6 @@ buttonptr_t *setbuttons_menu(void)
     values[1] = 350;
     values[2] = 310;
     values[3] = 100;
-    init_button(buttons, values, quit, "asset/menu/load.png");
+    init_button(buttons, values, load, "asset/menu/load.png");
     return (buttons);
 }

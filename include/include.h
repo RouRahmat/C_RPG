@@ -21,6 +21,8 @@ void quit(master_t *master);
 
 void play(master_t *master);
 
+void load(master_t *master);
+
 void check_click(master_t *master, buttonptr_t *buttons);
 
 menu_t *setmenu();
@@ -56,3 +58,9 @@ int check_mouse_state(master_t *master);
 void initmaster(master_t *master);
 
 int menu(master_t *master);
+
+loadm_t *setload(void);
+
+void updateload(sfRenderWindow *window, loadm_t *load);
+
+void loadmenu(master_t *master);
