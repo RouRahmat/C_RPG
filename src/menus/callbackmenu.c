@@ -14,10 +14,10 @@ void quit(master_t *master)
 
 void play(master_t *master)
 {
-    master->state = 2;
+    master->state = 1;
 }
 
 void load(master_t *master)
 {
-    master->state = 1;
+    master->state = 2;
 }

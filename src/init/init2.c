@@ -7,7 +7,17 @@
 
 #include "include.h"
 
-/* buttonptr_t *setbuttons_load(void)
+void initmaster(master_t *master)
+{
+    master->window = init_window();
+    master->menu = setmenu();
+    master->game = setgame();
+    master->load = setload();
+    master->state = 0;
+    master->mouse = 0;
+}
+
+buttonptr_t *setbuttons_load(void)
 {
     buttonptr_t *buttons = malloc(sizeof(buttonptr_t));
     float values[4] = {430, 150, 420, 100};
@@ -53,13 +63,4 @@ void loadmenu(master_t *master)
 {
     updateload(master->window, master->load);
     check_click(master, master->load->buttons);
-} */
-
-void initmaster(master_t *master)
-{
-    master->window = init_window();
-    master->menu = setmenu();
-    master->load = setload();
-    master->state = 0;
-    master->mouse = 0;
 }

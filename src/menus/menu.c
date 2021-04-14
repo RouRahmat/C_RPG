@@ -17,14 +17,20 @@ menu_t *setmenu(void)
     bg = sfTexture_createFromFile("asset/menu/titlescreen.png", NULL);
     menu->buttons = setbuttons_menu();
     menu->background = sfSprite_create();
+    menu->mouse = sfSprite_create();
     sfSprite_setTexture(menu->background, bg, sfFalse);
     return (menu);
 }
 
 void updatemenu(sfRenderWindow *window, menu_t *menu)
 {
+    sfVector2i mouse_p = sfMouse_getPosition(window);
+    sfVector2f m_t = sfRenderWindow_mapPixelToCoords(window, mouse_p, NULL);
+
+    sfSprite_setPosition(menu->mouse, m_t);
     sfRenderWindow_drawSprite(window, menu->background, sfFalse);
     draw_buttons(menu->buttons, window);
+    sfRenderWindow_drawSprite(window, menu->mouse, sfFalse);
     sfRenderWindow_display(window);
     sfRenderWindow_clear(window, sfTransparent);
 }

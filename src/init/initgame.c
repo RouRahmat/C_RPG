@@ -7,12 +7,12 @@
 
 #include "../include/include.h"
 
-sfSprite *setmap(void)
+sfSprite *setmap(char *path)
 {
     sfVector2f scale = {2.2, 2.2};
-    sfVector2f pos = {-250, -50};
+    sfVector2f pos = {-250 + 4, -62 - 6};
     sfSprite *sprite = sfSprite_create();
-    sfTexture *texture = sfTexture_createFromFile("asset/game/map.png", NULL);
+    sfTexture *texture = sfTexture_createFromFile(path, NULL);
 
     sfSprite_setTexture(sprite, texture, sfFalse);
     sfSprite_setScale(sprite, scale);
@@ -23,15 +23,20 @@ sfSprite *setmap(void)
 player_t *setplayer(void)
 {
     sfVector2f scale = {3, 3};
+    //sfVector2f scale_int = {0.75, 0.75};
     sfVector2f pos = {750, 400};
     sfIntRect rect = {0, 0, 16, 16};
     player_t *player = malloc(sizeof(player_t));
     sfTexture *texture = sfTexture_createFromFile("asset/characters/main.png", NULL);
+    sfTexture *t_inter = sfTexture_createFromFile("asset/game/interact.png", NULL);
     player->sprite = sfSprite_create();
+    player->s_inter = sfSprite_create();
     player->pos = pos;
     player->rect = rect;
     sfSprite_setTexture(player->sprite, texture, sfFalse);
+    sfSprite_setTexture(player->s_inter, t_inter, sfFalse);
     sfSprite_setScale(player->sprite, scale);
+    //sfSprite_setScale(player->s_inter, scale_int);
     sfSprite_setPosition(player->sprite, pos);
     sfSprite_setTextureRect(player->sprite, rect);
     return (player);
@@ -63,7 +68,8 @@ game_t *setgame(void)
     sfFont *font = sfFont_createFromFile("asset/Silver.ttf");
     game_t *game = malloc(sizeof(game_t));
 
-    game->map = setmap();
+    game->map = setmap("asset/game/map.png");
+    game->fg_map = setmap("asset/game/fg_map.png");
     game->player = setplayer();
     game->key = setkey();
     game->txtbox = malloc(sizeof(txtbox_t));
@@ -86,5 +92,6 @@ game_t *setgame(void)
 
     sfSprite_setTexture(game->txtbox->sprite, texture, sfTrue);
     sfSprite_setTexture(game->txtbox->arrow, t_arrow, sfTrue);
+    get_map(game);
     return (game);
 }

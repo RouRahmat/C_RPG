@@ -19,3 +19,16 @@ int check_mouse_state(master_t *master)
         return (0);
     }
 }
+
+int igcheck_mouse_state(keyboard_t *key)
+{
+    if (sfMouse_isButtonPressed(sfMouseLeft) && key->Mouse == 0){
+        key->Mouse = 1;
+        return (1);
+    } else if (!sfMouse_isButtonPressed(sfMouseLeft) && key->Mouse == 1){
+        key->Mouse = 0;
+        return (0);
+    } else {
+        return (0);
+    }
+}

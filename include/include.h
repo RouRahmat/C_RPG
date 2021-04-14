@@ -59,8 +59,8 @@ void initmaster(master_t *master);
 
 int menu(master_t *master);
 
-loadm_t *setload(void);
-
-void updateload(sfRenderWindow *window, loadm_t *load);
+int game(master_t *master);
 
 void loadmenu(master_t *master);
+
+loadm_t *setload(void);

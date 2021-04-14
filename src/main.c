@@ -8,7 +8,7 @@
 #include "include.h"
 #include <string.h>
 
-typedef void(*fnc)(master_t *);
+typedef void(*fnc)(master_t*);
 
 
 int main(int ac, char **av)
@@ -17,7 +17,7 @@ int main(int ac, char **av)
     sfTime time;
     sfEvent event;
     master_t *master = malloc(sizeof(master_t));
-    fnc func[5] = {menu, loadmenu};
+    fnc func[5] = {menu, game, loadmenu};
 
     initmaster(master);
     while (sfRenderWindow_isOpen(master->window)) {
