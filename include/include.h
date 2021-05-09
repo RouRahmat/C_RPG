@@ -15,8 +15,6 @@
 #include "my.h"
 #include "struct.h"
 
-typedef void(*fnc)(master_t *);
-typedef void(*fncscen)(master_t *, int i);
 
 //game.c
 void quit(master_t *master);
@@ -50,8 +48,6 @@ void display (master_t *master);
 //  init.c
 sfRenderWindow *init_window (void);
 
-void get_map(game_t *game, char *path);
-
 //  main.c
 int main(int ac, char **av);
 
@@ -70,7 +66,3 @@ void loadmenu(master_t *master);
 loadm_t *setload(void);
 
 int igcheck_key_state(keyboard_t *key);
-
-void switchmap(master_t *master, int i);
-
-maps_t *setmaps(void);

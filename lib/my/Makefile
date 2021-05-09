@@ -16,6 +16,7 @@ SRC	=	my_putchar.c\
 		my_rand.c\
 		my_strcmp.c\
 		my_strcpy.c\
+		my_linkedlist.c\
 		my_compute_power_it.c\
 		do_op.c\
 		my_strclean.c\

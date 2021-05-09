@@ -10,6 +10,34 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <SFML/Graphics.h>
+#include <SFML/Config.h>
+#include <SFML/Audio.h>
+#include <SFML/System/Export.h>
+#include <SFML/System/Time.h>
+#include <SFML/System/Types.h>
+#include <SFML/Window/Keyboard.h>
+
+typedef struct Element Element;
+struct Element
+{
+    sfSprite *sprite;
+    sfVector2f pos;
+    sfIntRect rect;
+    int movement[4];
+    char hitbox[4];
+    int type;
+    int anim;
+    int facing;
+    int health;
+    Element *next;
+};
+
+typedef struct List List;
+struct List
+{
+    Element * first;
+};
 
 void my_putchar(char c);
 
@@ -42,3 +70,13 @@ int my_printf(const char *format, ...);
 char **my_irarrcpy(char **dest, char const **src);
 
 char *my_strcat(char *stra, char *strb);
+
+// linked list
+
+List * ll_initialise();
+
+void ll_insert(List * list, int nb, Element *new);
+
+void ll_delete(List *list, int i);
+
+int ll_get_elem (List * list, int i);

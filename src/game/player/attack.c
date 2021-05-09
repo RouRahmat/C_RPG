@@ -27,6 +27,8 @@ int update_player_attdir(master_t *master, player_t *player)
 
 void attack(master_t *master)
 {
-    master->game->player->rect.top = 16;
-    master->game->player->rect.left = 16 * master->game->player->att_dir;
+    if (master->game->player->hit == 0) {
+        master->game->player->rect.top = 16;
+        master->game->player->rect.left = 16 * master->game->player->att_dir;
+    }
 }

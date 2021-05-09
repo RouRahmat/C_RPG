@@ -11,7 +11,7 @@ void switchmap(master_t *master, int i)
 {
     map_t *n_map = master->game->maps->first;
 
-    for(;n_map->loca != i && n_map->next; n_map = n_map->next);
+    for (; n_map->loca != i && n_map->next; n_map = n_map->next);
     sfSprite_setPosition(master->game->map, n_map->m_pos);
     sfSprite_setPosition(master->game->fg_map, n_map->m_pos);
     sfSprite_setPosition(master->game->player->sprite, n_map->p_pos);
@@ -19,4 +19,10 @@ void switchmap(master_t *master, int i)
     master->game->loca = n_map->loca;
     master->game->player->pos.x = n_map->p_pos.x;
     master->game->player->pos.y = n_map->p_pos.y;
+    /* if(master->game->loca == 2)
+        init_enemies(master->game);
+    else {
+        free(master->game->enemies->lenemies);
+        master->game->enemies->lenemies = ll_initialise();
+    } */
 }

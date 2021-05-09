@@ -43,6 +43,7 @@ void check_keys(master_t *master)
         key->D = 1;
     if (sfKeyboard_isKeyPressed(sfKeyI) && key->I == 0)
         key->I = 1;
-    if (igcheck_mouse_state(key) == 1)
-        attack(master);
+    key->Mouse = 0;
+    /* if (igcheck_mouse_state(key) == 1)
+        attack(master); */
 }

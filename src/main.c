@@ -7,6 +7,12 @@
 
 #include "include.h"
 #include <string.h>
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+
+typedef void(*fnc)(master_t*);
+
 
 int main(int ac, char **av)
 {
@@ -16,6 +22,7 @@ int main(int ac, char **av)
     master_t *master = malloc(sizeof(master_t));
     fnc func[5] = {menu, game, loadmenu};
 
+    srand(getpid());
     initmaster(master);
     while (sfRenderWindow_isOpen(master->window)) {
         while (sfRenderWindow_pollEvent(master->window, &event))

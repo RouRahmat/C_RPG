@@ -23,18 +23,26 @@ sfSprite *setmap(char *path)
 player_t *setplayer(void)
 {
     sfVector2f scale = {3, 3};
-    sfVector2f pos = {650, 400};
+    //sfVector2f scale_int = {0.75, 0.75};
+    sfVector2f pos = {700, 400};
     sfIntRect rect = {0, 0, 16, 16};
     player_t *player = malloc(sizeof(player_t));
-    sfTexture *txt = sfTexture_createFromFile("asset/characters/main.png", NULL);
-    sfTexture *tin = sfTexture_createFromFile("asset/game/interact.png", NULL);
+    sfTexture *texture = sfTexture_createFromFile("asset/characters/main.png", NULL);
+    sfTexture *t_sword = sfTexture_createFromFile("asset/characters/sword.png", NULL);
+    sfTexture *t_inter = sfTexture_createFromFile("asset/game/interact.png", NULL);
     player->sprite = sfSprite_create();
     player->s_inter = sfSprite_create();
+    player->s_sword = sfSprite_create();
     player->pos = pos;
     player->rect = rect;
-    sfSprite_setTexture(player->sprite, txt, sfFalse);
-    sfSprite_setTexture(player->s_inter, tin, sfFalse);
+    player->atk = 0;
+    player->hit = 0;
+    sfSprite_setTexture(player->sprite, texture, sfFalse);
+    sfSprite_setTexture(player->s_sword, t_sword, sfFalse);
+    sfSprite_setTexture(player->s_inter, t_inter, sfFalse);
     sfSprite_setScale(player->sprite, scale);
+    sfSprite_setScale(player->s_sword, scale);
+    //sfSprite_setScale(player->s_inter, scale_int);
     sfSprite_setPosition(player->sprite, pos);
     sfSprite_setTextureRect(player->sprite, rect);
     return (player);
@@ -54,6 +62,24 @@ keyboard_t *setkey(void)
     return (key);
 }
 
+enemies_t *set_enemies()
+{
+    enemies_t *enemies = malloc(sizeof(enemies_t));
+    sfTexture *t_en[3];
+    t_en[0] = sfTexture_createFromFile("asset/enemies/e1.png", NULL);
+    t_en[1] = sfTexture_createFromFile("asset/enemies/e2.png", NULL);
+    t_en[2] = sfTexture_createFromFile("asset/enemies/e3.png", NULL);
+    sfVector2f scale = {2, 2};
+
+    for (int i = 0; i != 3; i++) {
+        enemies->s_en[i] = sfSprite_create();
+        sfSprite_setScale(enemies->s_en[i], scale);
+        sfSprite_setTexture(enemies->s_en[i], t_en[i], sfTrue);
+    }
+    enemies->lenemies = ll_initialise();
+    return (enemies);
+}
+
 void setstructgame(game_t *game)
 {
     char defaulttxt[] = "\0";
@@ -70,6 +96,7 @@ void setstructgame(game_t *game)
     game->txtbox->disp = 0;
     game->loca = 1;
     game->maps = setmaps();
+    game->enemies = set_enemies();
     sfText_setLineSpacing(game->txtbox->text, 0.75);
     sfText_setCharacterSize(game->txtbox->text, 60);
     sfText_setColor(game->txtbox->text, sfBlack);

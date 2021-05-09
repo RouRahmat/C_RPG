@@ -22,7 +22,7 @@ int check_mouse_state(master_t *master)
 
 int igcheck_mouse_state(keyboard_t *key)
 {
-    if (sfMouse_isButtonPressed(sfMouseLeft) && key->Mouse == 0){
+    if (sfMouse_isButtonPressed(sfMouseLeft) && key->Mouse != 1){
         key->Mouse = 1;
         return (1);
     } else if (!sfMouse_isButtonPressed(sfMouseLeft) && key->Mouse == 1){

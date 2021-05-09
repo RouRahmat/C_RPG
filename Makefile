@@ -19,7 +19,7 @@ clean:
 	make clean -C ./lib/my/
 
 fclean: clean
-	rm $(NAME)
+	rm -f $(NAME)
 	make fclean -C ./lib/my/
 
 re:	fclean all

@@ -35,12 +35,20 @@ typedef struct buttonptr_s {
 typedef struct player_s {
     sfSprite *sprite;
     sfSprite *s_inter;
+    sfSprite *s_sword;
     sfIntRect rect;
     sfVector2f pos;
     char hitbox[5];
+    int atk;
     int facing;
     int att_dir;
+    int hit;
 } player_t;
+
+typedef struct enemies_s {
+    sfSprite *s_en[3];
+    List *lenemies;
+} enemies_t;
 
 typedef struct txtbox_s {
     sfSprite *sprite;
@@ -61,13 +69,6 @@ typedef struct keyboard_s {
     int Mouse;
 } keyboard_t;
 
-
-typedef struct menu_s {
-    buttonptr_t *buttons;
-    sfSprite *background;
-    sfSprite *mouse;
-} menu_t;
-
 typedef struct loadm_s {
     buttonptr_t *buttons;
     sfSprite *background;
@@ -78,8 +79,15 @@ typedef struct map_s {
     sfVector2f p_pos;
     char *collisionpath;
     int loca;
+    int type;
     struct map_s *next
 }map_t;
+
+typedef struct menu_s {
+    buttonptr_t *buttons;
+    sfSprite *background;
+    sfSprite *mouse;
+} menu_t;
 
 typedef struct maps_s {
     map_t *first;
@@ -93,6 +101,7 @@ typedef struct game_s {
     keyboard_t *key;
     maps_t *maps;
     char *board;
+    enemies_t *enemies;
     int loca;
 } game_t;
 

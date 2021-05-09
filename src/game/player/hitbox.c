@@ -23,6 +23,7 @@ void update_hitbox(master_t *master, player_t *player)
     player->hitbox[2] = master->game->board[posleft - 1];
     player->hitbox[3] = master->game->board[pos - 38];
     player->hitbox[4] = master->game->board[pos];
+    //printf("  %c\n%c   %c\n  %c\n\n", player->hitbox[3], player->hitbox[2], player->hitbox[0], player->hitbox[1]);
     update_facing_sprite(player, master->game->key);
     set_movement(master, player);
 }
@@ -32,7 +33,8 @@ void set_movement(master_t *master, player_t *player)
     float posx = player->pos.x / (16 * 2.2);
     float posy = player->pos.y / (16 * 2.2);
     int col = player->hitbox[4] - 48;
-
+    //printf ("col: %i\n", col);
+    //printf ("%f\n", posy - floor(posy));
     if (player->hitbox[0] != '0' && posx - floor(posx) >= 0.5)
         master->game->key->D = 0;
     if (player->hitbox[1] != '0')

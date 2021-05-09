@@ -11,8 +11,8 @@ sfRenderWindow *init_window(void)
 {
     sfVideoMode video_mode = {1280, 720, 30};
     sfRenderWindow *window;
-    window = sfRenderWindow_create(video_mode, "my_rpg", sfClose, NULL);
 
+    window = sfRenderWindow_create(video_mode, "my_rpg", sfClose, NULL);
     sfRenderWindow_setVerticalSyncEnabled(window, sfTrue);
     return (window);
 }
