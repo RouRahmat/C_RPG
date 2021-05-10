@@ -19,11 +19,13 @@ void check_inter_pos(master_t *master)
     float posy = floor((master->game->player->pos.y) / (16 * 2.2));
     int pos = floor((38 * posy) + posx) * (1.5 * master->game->loca);
     int i = 0;
-    int doors[2] = {396, 877};
-
+    int doors[2] = {877, 396};
+    my_printf(" pos = %i\n", pos);
     for(; doors[i] != pos && i <= 2; i++);
-    if(i <= 1)
-        switchmap(master, i+1);
+    if(i == 0)
+        switchmap(master, my_rand(2, 4));
+    else
+        switchmap(master, 1);
 }
 
 void check_interaction(master_t *master)
