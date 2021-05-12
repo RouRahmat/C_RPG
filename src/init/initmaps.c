@@ -37,7 +37,7 @@ maps_t *setmaps(void)
     m_pos.x = -1375;
     m_pos.y = -2746;
     addmap(maps, m_pos, p_pos, "asset/game/dj2.txt");
-    m_pos.x = 0;
+    m_pos.x = -2750;
     m_pos.y = -2746;
     addmap(maps, m_pos, p_pos, "asset/game/dj3.txt");
     return (maps);
