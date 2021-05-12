@@ -20,7 +20,7 @@ void check_inter_pos(master_t *master)
     int pos = floor((38 * posy) + posx) * (1.5 * master->game->loca);
     int i = 0;
     int doors[2] = {877, 396};
-    my_printf(" pos = %i\n", pos);
+    
     for(; doors[i] != pos && i <= 2; i++);
     if(i == 0)
         switchmap(master, my_rand(2, 4));

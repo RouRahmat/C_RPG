@@ -19,10 +19,10 @@ void switchmap(master_t *master, int i)
     master->game->loca = n_map->loca;
     master->game->player->pos.x = n_map->p_pos.x;
     master->game->player->pos.y = n_map->p_pos.y;
-    /* if(master->game->loca == 2)
+    if(master->game->loca >= 2)
         init_enemies(master->game);
     else {
         free(master->game->enemies->lenemies);
         master->game->enemies->lenemies = ll_initialise();
-    } */
+    }
 }
