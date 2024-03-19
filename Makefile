@@ -13,7 +13,7 @@ all:		$(NAME)
 
 $(NAME):
 		make -C ./lib/my/
-		gcc -w $(SRC) -o $(NAME) -Llib -lmy -lm -lcsfml-graphics -lcsfml-window -lcsfml-system -ggdb -lcsfml-audio -Iinclude
+		gcc -w $(SRC) -o $(NAME) -Llib -lmy -lm -lcsfml-graphics -lcsfml-window -lcsfml-system -ggdb -lcsfml-audio -Iinclude -lraylib
 
 clean:
 	make clean -C ./lib/my/

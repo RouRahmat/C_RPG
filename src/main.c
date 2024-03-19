@@ -11,6 +11,8 @@
 #include <time.h>
 #include <stdlib.h>
 
+#include <raylib.h>
+
 typedef void(*fnc)(master_t*);
 
 
